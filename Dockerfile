@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir streamlit pandas openpyxl
 EXPOSE 8501
 
 # Run Streamlit app
-CMD ["streamlit", "run", "test.py", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "streamlit_app.py", "--server.address=0.0.0.0"]
