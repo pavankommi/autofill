@@ -31,7 +31,7 @@ DEFAULT_VALUES = {
     "product.type": "simple"
 }
 
-st.title("Excel Auto-Fill Based on 'sku' or 'mpn'")
+st.title("XLS Auto-Fill")
 
 uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
 
@@ -43,7 +43,7 @@ if uploaded_file:
 
     # Ensure 'sku' or 'mpn' exists
     if 'sku' not in headers and 'mpn' not in headers:
-        st.error("Excel file must contain 'sku' or 'mpn' column.")
+        st.error("sheet must contain 'sku' or 'mpn' column.")
     else:
         # Add missing columns if needed
         for col in TARGET_COLUMNS:
@@ -70,7 +70,7 @@ if uploaded_file:
         output = BytesIO()
         wb.save(output)
         st.download_button(
-            label="Download Updated Excel",
+            label="Download Updated sheet",
             data=output.getvalue(),
             file_name="updated.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
